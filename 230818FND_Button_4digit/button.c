@@ -9,7 +9,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-void Button_init(
+void Button_init( // 버튼초기화 메서드 
+ // < 파라미터에 일반변수가 아닌 포인터변수 3개와 일반변수1개로 만든 이유 >
+ // : 일반변수는 사본을 별개로 만들어 원본을 수정못하는데, 포인터변수는 원본멤버 수정가능
 	Button *button, 
 	volatile uint8_t *ddr, 
 	volatile uint8_t *pin,
@@ -32,8 +34,8 @@ uint8_t BUTTON_fetState(Button *button){
 	
 	else if((curState !=PUSHED)&&(button->prevState==PUSHED)) //누른 상태에서 때면
 	{	_delay_ms(50);
-		button->prevState=RELEASED;
-		return ACT_RELEASED; // enum 2 버튼이 떨어졌음을 반환
+		button->prevState=RELEASED; // enum 1                // enum{PUSHED,RELEASED}; 0 1
+		return ACT_RELEASED; // enum 2 버튼이 떨어졌음을 반환  // enum{NO_ACT, ACT_PUSH, ACT_RELEASED}; //0 1 2
 	}
 	return NO_ACT; // enum 0 아무것도 안했을때
 }

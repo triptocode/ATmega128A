@@ -26,9 +26,9 @@ int main(void)
 	Button btnRunStop;
 	Button btnReset;
 	// Button_init(Button *button, volatile uint8_t *ddr, volatile uint8_t *pin, uint8_t pinNum)
-	Button_init(&btnRunStop, &BUTTON_DDR, &BUTTON_PIN,0); 
+	Button_init(&btnRunStop, &BUTTON_DDR, &BUTTON_PIN, 0); 
 	 // Button_init(Button &btnReset, volatile uint8_t &DDRA, volatile uint8_t &PINA, uint8_t 1)
-	Button_init(&btnReset, &BUTTON_DDR, &BUTTON_PIN,1);
+	Button_init(&btnReset, &BUTTON_DDR, &BUTTON_PIN, 1);
 	 while (1)
     {	switch(counterState) //	★ 1. 버튼 상황에 따른 로직의 case STOP, case RUN 
 		{	case STOP: //  case STOP 숫자멈춰있는상태 --> RUN(같은스위치 PUSH할때) 또는 RESET(옆에스위치 PUSH할때)
@@ -46,7 +46,7 @@ int main(void)
 			case RUN: FND_setFndDisplayData(counter++);  _delay_ms(100); // 숫자화면 증가중, 대기시간 100ms
 			break;
 			
-			case RESET:  counter=0;  FND_setFndDisplayData(counter);  counterState=STOP; // 숫자화면 0 으로 리셋, STOP상태로 리셋
+			case RESET:  counter=0; FND_setFndDisplayData(counter); counterState=STOP; // 숫자화면 0 으로 리셋, STOP상태로 리셋
 			break;	
 		}
     } // while end

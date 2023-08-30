@@ -493,12 +493,12 @@ END GROUP
  .debug_abbrev  0x0000088d      0x141 interrupt.o
  .debug_abbrev  0x000009ce      0x197 main.o
 
-.debug_line     0x00000000      0x689
+.debug_line     0x00000000      0x683
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x16a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128a/avr51/crtatmega128a.o
  .debug_line    0x0000016a      0x1a3 button.o
- .debug_line    0x0000030d      0x1a8 interrupt.o
- .debug_line    0x000004b5      0x1d4 main.o
+ .debug_line    0x0000030d      0x1a2 interrupt.o
+ .debug_line    0x000004af      0x1d4 main.o
 
 .debug_frame    0x00000000      0x160
  *(.debug_frame)
